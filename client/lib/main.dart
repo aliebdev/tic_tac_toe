@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/pages/game_screen.dart';
 
 import 'pages/create_room_page.dart';
 import 'pages/join_room_page.dart';
@@ -27,6 +28,7 @@ class MainApp extends StatelessWidget {
         MainMenuPage.routeName: (context) => const MainMenuPage(),
         CreateRoomPage.routeName: (context) => const CreateRoomPage(),
         JoinRoomPage.routeName: (context) => const JoinRoomPage(),
+        GameScreen.routeName: (context) => const GameScreen(),
       },
     );
   }

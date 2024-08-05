@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/resources/socket_methods.dart';
 
 import '../responsive/responsive.dart';
 import '../widgets/custom_button.dart';
@@ -15,11 +16,13 @@ class CreateRoomPage extends StatefulWidget {
 
 class _CreateRoomPageState extends State<CreateRoomPage> {
   late TextEditingController _nameController;
+  final SocketMethods _socketMethods = SocketMethods();
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController();
+    _socketMethods.createRoomSuccessListener(context);
   }
 
   @override
@@ -58,7 +61,8 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
               ),
               SizedBox(height: size.height * .045),
               CustomButton(
-                onPressed: () {},
+                onPressed: () =>
+                    _socketMethods.createRoom(_nameController.text),
                 text: "Create",
               ),
             ],
