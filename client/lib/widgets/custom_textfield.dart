@@ -7,9 +7,11 @@ class CustomTextfield extends StatelessWidget {
     super.key,
     required this.controller,
     required this.hintText,
+    this.isReadOnly = false,
   });
   final TextEditingController controller;
   final String hintText;
+  final bool isReadOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class CustomTextfield extends StatelessWidget {
       ]),
       child: TextField(
         controller: controller,
+        readOnly: isReadOnly,
         decoration: InputDecoration(
           fillColor: AppColors.backgroundColor,
           filled: true,

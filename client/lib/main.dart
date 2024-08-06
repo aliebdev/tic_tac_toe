@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/pages/game_screen.dart';
+import 'package:tic_tac_toe/providers/room_data_provider.dart';
 
 import 'pages/create_room_page.dart';
 import 'pages/join_room_page.dart';
@@ -7,7 +9,14 @@ import 'pages/main_menu_page.dart';
 import 'utils/colors.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => RoomDataProvider()),
+      ],
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
